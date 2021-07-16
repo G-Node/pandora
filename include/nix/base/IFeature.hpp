@@ -21,12 +21,19 @@ namespace nix {
 /**
  * @brief Enumeration for link types.
  *
- *  TODO remove "untagged" from link type
  */
 enum class LinkType : int {
     Tagged, Untagged, Indexed
 };
 
+
+/**
+ * @brief Enumeration for feature target types.
+ *
+ */
+enum class TargetType : int {
+    DataArray, DataFrame
+};
 
 
 namespace base {
@@ -44,6 +51,9 @@ public:
 
 
     virtual LinkType linkType() const = 0;
+
+    
+    virtual TargetType targetType() const = 0;
 
 
     virtual void data(const std::string &name_or_id) = 0;
